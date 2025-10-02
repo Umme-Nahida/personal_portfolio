@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express"
 import { catchAsync } from "../../utils/catchAsync"
 import { blogService } from "./blog.service";
+import { sendResponse } from "../../utils/sendResponse";
 
  const createBlog = catchAsync(async(req:Request, res:Response,next:NextFunction)=>{
      const blog = req.body;
@@ -9,7 +10,19 @@ import { blogService } from "./blog.service";
      res.status(201).send(result)
  })
 
+ const getAllBlog = catchAsync(async(req:Request, res:Response,next:NextFunction)=>{
+
+     const result = await blogService.getAllBlog()
+     sendResponse(res, {
+        statusCode:201,
+        success:true,
+        message:"all user retrieve successfully",
+        data: result
+     })
+ })
+
 
 export const blogController ={
-    createBlog
+    createBlog,
+    getAllBlog
 }
