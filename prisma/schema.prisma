@@ -14,20 +14,60 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role{
+  admin 
+  user
+}
 
 
 model User {
   id    Int     @id @default(autoincrement())
+  name  String
   email String  @unique
-  name  String?
+  password String
+  address String?
+  image String?
+  role Role @default(user)
+  createdAt DateTime @default(now())
   posts Post[]
 }
 
 model Post {
   id        Int     @id @default(autoincrement())
   title     String
-  content   String?
+  image     String
+  content   String
   published Boolean @default(false)
+  date DateTime @default(now())
   author    User    @relation(fields: [authorId], references: [id])
   authorId  Int
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
