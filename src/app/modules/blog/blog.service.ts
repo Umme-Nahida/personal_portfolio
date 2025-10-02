@@ -15,6 +15,12 @@ const createBlog = async (payload: Prisma.PostCreateInput):Promise<Post> => {
 }
 
 
+const singleBlog = async(id:number)=>{
+
+  const post = await prisma.post.findUnique({where:{id}})
+  return post
+}
+
 const getAllBlog = async()=>{
 
   const post = await prisma.post.findMany()
@@ -23,5 +29,6 @@ const getAllBlog = async()=>{
 
 export const blogService = {
   createBlog,
-  getAllBlog
+  getAllBlog,
+  singleBlog
 }
