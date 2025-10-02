@@ -56,8 +56,26 @@ const getAllBlog = async(search:string, page:number, limit:number)=>{
   }
 }
 
+
+// update blog data 
+const updateBlog = async(id:number,blogInfo:Prisma.PostUpdateInput)=>{
+
+  const post = await prisma.post.update({where:{id}, data:blogInfo})
+  return post
+}
+
+
+// delete blog data 
+const deleteBlog = async(id:number)=>{
+
+  const post = await prisma.post.delete({where:{id}})
+  return post
+}
+
 export const blogService = {
   createBlog,
   getAllBlog,
-  singleBlog
+  singleBlog,
+  updateBlog,
+  deleteBlog
 }
