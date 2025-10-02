@@ -11,13 +11,18 @@ import { sendResponse } from "../../utils/sendResponse";
  })
 
  const getAllBlog = catchAsync(async(req:Request, res:Response,next:NextFunction)=>{
+     const {search} = req.query || "";
+     const page = Number(req.query.page) || 1;
+     const limit = Number(req.query.limit) || 5;
 
-     const result = await blogService.getAllBlog()
+     const result = await blogService.getAllBlog(search as string, page,limit)
+
      sendResponse(res, {
         statusCode:201,
         success:true,
         message:"all user retrieve successfully",
-        data: result
+        data: result,
+       
      })
  })
 
