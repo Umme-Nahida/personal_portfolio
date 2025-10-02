@@ -27,6 +27,34 @@ import { sendResponse } from "../../utils/sendResponse";
  })
 
 
+ const deletePost = catchAsync(async(req:Request,res:Response,next:NextFunction)=>{
+    const {id} = req.params;
+ 
+    const result = await blogService.deleteBlog(Number(id))
+ 
+    res.status(201).json({
+       success: true,
+       message: "Post has been deleted successfully",
+       data: null,
+     })
+ })
+ 
+ 
+ const updatePost = catchAsync(async(req:Request,res:Response,next:NextFunction)=>{
+    const {id} = req.params;
+    const userInfo = req.body;
+ 
+    const result = await blogService.updateBlog(Number(id),userInfo)
+ 
+    res.status(201).json({
+       success: true,
+       message: "Post has been updated successfully",
+       data: result,
+     })
+ })
+ 
+
+
  const singleBlog = catchAsync(async(req:Request, res:Response,next:NextFunction)=>{
      
     const {id} = req.params;
@@ -43,5 +71,7 @@ import { sendResponse } from "../../utils/sendResponse";
 export const blogController ={
     createBlog,
     getAllBlog,
-    singleBlog
+    singleBlog,
+    updatePost,
+    deletePost
 }
