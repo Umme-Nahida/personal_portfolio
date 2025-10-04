@@ -16,8 +16,12 @@ const createBlog = async (payload: Prisma.PostCreateInput):Promise<Post> => {
 }
 
 const singleBlog = async(id:number)=>{
-
-  const post = await prisma.post.findUnique({where:{id}})
+  // console.log("id:",id);
+  const post = await prisma.post.findUnique({where:{id}, include:{author:true}})
+  if (!post){
+    throw new Error("Blog not found")
+  }
+  console.log("post",post)
   return post
 }
 
@@ -29,17 +33,20 @@ const getAllBlog = async(search:string, page:number, limit:number)=>{
     where:{
       title:{contains:search, mode:"insensitive"}
     },
-     include:{
-        author:{
-            select:{
-                name:true,
-                email:true,
-                address:true,
-                image:true,
-                role:true
-            }
-        }
-    }
+    include: {
+    author: {
+      select: {
+        name: true,
+        email: true,
+        address: true,
+        image: true,
+        role: true,
+        createdAt: true, // এটা include করতে ভুলবে না
+      }
+    }},
+     orderBy:{
+       date:"desc"
+    },
   })
 
   const totalPost = await prisma.post.count()

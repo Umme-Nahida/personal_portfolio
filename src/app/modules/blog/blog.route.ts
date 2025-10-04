@@ -8,7 +8,7 @@ const route = Router()
 
 route.post('/',checkAuth(Role.admin),blogController.createBlog)
 route.get("/", blogController.getAllBlog)
-route.get('/:id',checkAuth(Role.admin),blogController.singleBlog)
+route.get("/:id",blogController.singleBlog)
 route.delete("/:id", checkAuth(Role.admin), blogController.deletePost)
 route.patch("/:id", checkAuth(Role.admin), blogController.updatePost)
 

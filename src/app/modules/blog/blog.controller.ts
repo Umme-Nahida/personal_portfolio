@@ -58,12 +58,13 @@ import { sendResponse } from "../../utils/sendResponse";
  const singleBlog = catchAsync(async(req:Request, res:Response,next:NextFunction)=>{
      
     const {id} = req.params;
-     const result = await blogService.singleBlog(Number(id))
+     const post = await blogService.singleBlog(Number(id))
+
      sendResponse(res, {
         statusCode:201,
         success:true,
         message:"Single user retrieve successfully",
-        data: result
+        data: post
      })
  })
 

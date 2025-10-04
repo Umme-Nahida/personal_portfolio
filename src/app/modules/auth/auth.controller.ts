@@ -5,6 +5,7 @@ import { sendResponse } from "../../utils/sendResponse";
 import { createUserTokens } from "../../utils/createToken";
 import { IUserPayload } from "../../../types/type";
 import { setAuthCookie } from "../../utils/setCokie";
+import httpStatus from "http-status-codes"
 
 
 
@@ -29,6 +30,29 @@ const login = catchAsync(async (req: Request, res: Response, next: NextFunction)
    })
 })
 
+
+const logout = catchAsync(async(req:Request,res:Response, next:NextFunction)=>{
+        
+        res.clearCookie("token",{
+            httpOnly:true,
+            secure:false,
+            sameSite:"lax"
+        })
+
+        res.clearCookie("refreshToken",{
+            httpOnly:true,
+            secure:false,
+            sameSite:"lax"
+        })
+        sendResponse(res,{
+            success: true,
+            statusCode: httpStatus.CREATED,
+            message: "user logout successfully",
+            data: {}
+        })
+})
+
 export const authController = {
-   login
+   login,
+   logout
 }
