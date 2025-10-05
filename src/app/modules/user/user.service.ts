@@ -11,6 +11,23 @@ const getUser = async()=>{
 }
 
 
+const createAbout = async(data:Prisma.AboutCreateInput)=>{
+
+   const user = await prisma.about.create({
+    data: data
+   })
+
+    return user
+}
+
+const getAbout = async()=>{
+
+   const user = await prisma.about.findMany()
+
+    return user
+}
+
+
 const createUser = async(payload:Prisma.UserCreateInput)=>{
 
     const {email, ...rest} = payload
@@ -77,6 +94,8 @@ const deleteUser = async(id:number)=>{
 
 export const userService={
     getUser,
+    createAbout,
+    getAbout,
     createUser,
     deleteUser,
     updateUser

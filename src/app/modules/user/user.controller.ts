@@ -55,8 +55,36 @@ const updateUser = catchAsync(async(req:Request,res:Response,next:NextFunction)=
     })
 })
 
+
+const getAbout = catchAsync(async(req:Request,res:Response,next:NextFunction)=>{
+   
+
+   const result = await userService.getAbout()
+
+   res.status(201).json({
+      success: true,
+      message: "about data has been updated successfully",
+      data: result,
+    })
+})
+
+const createAbout = catchAsync(async(req:Request,res:Response,next:NextFunction)=>{
+
+   
+
+   const result = await userService.createAbout(req.body)
+
+   res.status(201).json({
+      success: true,
+      message: "about data has been updated successfully",
+      data: result,
+    })
+})
+
 export const userController ={
    getUser,
+   createAbout,
+   getAbout,
    createUser,
    deleteUser,
    updateUser

@@ -6,6 +6,8 @@ const route = Router()
 // only rider can access this route
 route.post("/register",userController.createUser)
 route.get("/",userController.getUser)
+route.post("/createAbout",userController.createAbout)
+route.get("/about",userController.getAbout)
 route.patch("/:id",userController.updateUser)
 route.delete("/:id",userController.deleteUser)
 

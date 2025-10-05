@@ -45,6 +45,15 @@ model Post {
 }
 
 
+model About {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  stats       Json
+  skills      Json
+  createdAt   DateTime @default(now())
+}
+
 
 
 
