@@ -6,7 +6,7 @@ import { blogController } from "./blog.controller";
 
 const route = Router()
 
-route.post('/',checkAuth(Role.admin),blogController.createBlog)
+route.post('/',blogController.createBlog)
 route.get("/", blogController.getAllBlog)
 route.get("/:id",blogController.singleBlog)
 route.delete("/:id", checkAuth(Role.admin), blogController.deletePost)

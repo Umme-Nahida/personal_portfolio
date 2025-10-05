@@ -30,6 +30,25 @@ const login = async(payload:Prisma.UserCreateInput)=>{
 }
 
 
+const deleteUser = async(id:number)=>{
+    
+    const isExistsUser = await prisma.user.findUnique({where:{id}})
+
+    // check is user is exists
+    if(!isExistsUser){
+        throw new Error("Invalid Credentials")
+    }
+
+    // delete user 
+    const user = await prisma.user.delete({where:{
+        id: id
+    }})
+
+    return user;
+}
+
+
 export const authService = {
-    login
+    login,
+    deleteUser
 }

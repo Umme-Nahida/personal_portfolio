@@ -30,6 +30,21 @@ const login = catchAsync(async (req: Request, res: Response, next: NextFunction)
    })
 })
 
+const deleteUser = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+   const {id} = req.params;
+
+   const user = await authService.deleteUser(Number(id))
+
+   sendResponse(res, {
+      statusCode: 201,
+      success: true,
+      message: "User deleted successfully",
+      data: {
+         user: user
+      }
+   })
+})
+
 
 const logout = catchAsync(async(req:Request,res:Response, next:NextFunction)=>{
         
@@ -54,5 +69,6 @@ const logout = catchAsync(async(req:Request,res:Response, next:NextFunction)=>{
 
 export const authController = {
    login,
-   logout
+   logout,
+   deleteUser
 }

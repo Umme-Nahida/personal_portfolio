@@ -11,7 +11,7 @@ export const catchAsync = (fn: tryCatchType) => (req: Request, res: Response, ne
         if (process.env.node_env === "development") {
             res.status(400).json({
                 success: false,
-                message: error.message || "Something went wrong",
+                message: error?.message || "Something went wrong",
             });
         }
     })

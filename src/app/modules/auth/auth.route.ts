@@ -8,7 +8,7 @@ route.post('/login',authController.login)
 route.post("/logout",authController.logout)
 // route.get('/')
 // route.get('/:id')
-// route.delete("/:id")
+route.delete("/:id",authController.deleteUser)
 // route.patch("/:id")
 
 
