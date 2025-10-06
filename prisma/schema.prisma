@@ -55,6 +55,11 @@ model About {
 }
 
 
+model Works {
+  id     Int @id @default(autoincrement())
+  slides Json
+}
+
 
 
 
