@@ -10,24 +10,6 @@ const getUser = async()=>{
     return user
 }
 
-
-const createAbout = async(data:Prisma.AboutCreateInput)=>{
-
-   const user = await prisma.about.create({
-    data: data
-   })
-
-    return user
-}
-
-const getAbout = async()=>{
-
-   const user = await prisma.about.findMany()
-
-    return user
-}
-
-
 const createUser = async(payload:Prisma.UserCreateInput)=>{
 
     const {email, ...rest} = payload
@@ -88,13 +70,48 @@ const deleteUser = async(id:number)=>{
     return user
 }
 
+// added about service api
+const createAbout = async(data:Prisma.AboutCreateInput)=>{
 
+   const user = await prisma.about.create({
+    data: data
+   })
+
+    return user
+}
+
+const getAbout = async()=>{
+
+   const user = await prisma.about.findMany()
+
+    return user
+}
+
+
+// added project service api
+const createProject = async(data:Prisma.WorksCreateInput)=>{
+
+   const user = await prisma.works.create({
+    data: data
+   })
+
+    return user
+}
+
+const getWorks = async()=>{
+
+   const user = await prisma.works.findMany()
+
+    return user
+}
 
 
 
 export const userService={
     getUser,
     createAbout,
+    createProject,
+    getWorks,
     getAbout,
     createUser,
     deleteUser,
