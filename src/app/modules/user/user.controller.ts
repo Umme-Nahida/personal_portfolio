@@ -82,39 +82,12 @@ const createAbout = catchAsync(async(req:Request,res:Response,next:NextFunction)
 })
 
 
-// -----------create-Project
-const createProject = catchAsync(async(req:Request,res:Response,next:NextFunction)=>{
 
-   
-
-   const result = await userService.createProject(req.body)
-
-   res.status(201).json({
-      success: true,
-      message: "create Project data retrieve successfully",
-      data: result,
-    })
-})
-
-
-const getWorks = catchAsync(async(req:Request,res:Response,next:NextFunction)=>{
-   
-
-   const result = await userService.getWorks()
-
-   res.status(201).json({
-      success: true,
-      message: "Works Data retrieve successfully",
-      data: result,
-    })
-})
 
 export const userController ={
    getUser,
    createAbout,
    getAbout,
-   createProject,
-   getWorks,
    createUser,
    deleteUser,
    updateUser

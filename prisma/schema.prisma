@@ -14,36 +14,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role{
-  admin 
+enum Role {
+  admin
   user
 }
 
-
 model User {
-  id    Int     @id @default(autoincrement())
-  name  String
-  email String  @unique
-  password String
-  address String?
-  image String?
-  role Role @default(user)
-  phone String?
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  address   String?
+  image     String?
+  role      Role     @default(user)
+  phone     String?
   createdAt DateTime @default(now())
-  posts Post[]
+  posts     Post[]
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   title     String
   image     String
   content   String
-  published Boolean @default(false)
-  date DateTime @default(now())
-  author    User    @relation(fields: [authorId], references: [id])
+  published Boolean  @default(false)
+  date      DateTime @default(now())
+  author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
 }
-
 
 model About {
   id          Int      @id @default(autoincrement())
@@ -54,35 +52,19 @@ model About {
   createdAt   DateTime @default(now())
 }
 
-
 model Works {
-  id     Int @id @default(autoincrement())
-  slides Json
+  id     Int  @id @default(autoincrement())
+  live   String
+  path   String
+  title  String
+  clientLink String
+  serverLink String
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// {
+// "live": "https://restaurant-client-rust.vercel.app/",
+// "path": "https://i.ibb.co.com/DPbsyKWr/bistro.jpg",
+// "title": "Restaurant",
+// "clientLink": "https://github.com/Umme-Nahida/restaurant-client",
+// "serverLink": "https://github.com/Umme-Nahida/restaurant-server"
+// }

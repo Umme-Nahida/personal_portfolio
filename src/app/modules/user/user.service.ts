@@ -89,29 +89,12 @@ const getAbout = async()=>{
 
 
 // added project service api
-const createProject = async(data:Prisma.WorksCreateInput)=>{
-
-   const user = await prisma.works.create({
-    data: data
-   })
-
-    return user
-}
-
-const getWorks = async()=>{
-
-   const user = await prisma.works.findMany()
-
-    return user
-}
 
 
 
 export const userService={
     getUser,
     createAbout,
-    createProject,
-    getWorks,
     getAbout,
     createUser,
     deleteUser,
