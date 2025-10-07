@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.blogRouter = void 0;
+const express_1 = require("express");
+// import { checkAuth } from "../../utils/checkAuth";
+// import { Role } from "../../../types/type";
+const blog_controller_1 = require("./blog.controller");
+const route = (0, express_1.Router)();
+route.post('/', blog_controller_1.blogController.createBlog);
+route.get("/", blog_controller_1.blogController.getAllBlog);
+route.get("/:id", blog_controller_1.blogController.singleBlog);
+route.delete("/:id", blog_controller_1.blogController.deletePost);
+route.patch("/:id", blog_controller_1.blogController.updatePost);
+exports.blogRouter = route;

@@ -1,14 +1,11 @@
-import { PrismaClient } from "../../generated/prisma";
-
-
-
-
-export const prisma = new PrismaClient()
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.prisma = void 0;
+const prisma_1 = require("../../generated/prisma");
+exports.prisma = new prisma_1.PrismaClient();
 //   about: {
 //     title: "Full Stack Developer",
 //     description: `I’m Nahida, a passionate Full Stack Developer with expertise in MERN stack and modern web technologies. I specialize in building efficient, user-friendly, and SEO-friendly applications using React.js, Next.js, TypeScript, Node.js, Express.js, MongoDB, Prisma, and PostgreSQL.
-
 // I enjoy taking on new challenges, exploring emerging frameworks and libraries, and transforming ideas into innovative digital experiences.`,
 //     stats: [
 //       { label: "Finished Projects", value: "12+" },
@@ -66,7 +63,6 @@ export const prisma = new PrismaClient()
 //     ],
 //   },
 // };
-
 // async function main() {
 //   await prisma.about.create({
 //     data: {
@@ -87,7 +83,6 @@ export const prisma = new PrismaClient()
 //     },
 //   });
 // }
-
 // main()
 //   .then(async () => {
 //     await prisma.$disconnect();
