@@ -41,6 +41,14 @@ CREATE TABLE "public"."About" (
     CONSTRAINT "About_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "public"."Works" (
+    "id" SERIAL NOT NULL,
+    "slides" JSONB NOT NULL,
+
+    CONSTRAINT "Works_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "public"."User"("email");
 

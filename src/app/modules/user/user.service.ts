@@ -1,7 +1,7 @@
 import { error } from "console"
-import { Prisma } from "../../../generated/prisma"
 import { prisma } from "../../config/db"
 import bcrypt from "bcryptjs"
+import { Prisma } from "@prisma/client"
 
 const getUser = async()=>{
 

@@ -1,9 +1,7 @@
-import { Prisma } from "../../../generated/prisma"
+
+import { Prisma } from "@prisma/client"
 import { prisma } from "../../config/db"
 import bcrypt from "bcryptjs"
-import { generateToken } from "../../utils/jwt"
-import { envVars } from "../../config/env"
-
 
 const login = async(payload:Prisma.UserCreateInput)=>{
     

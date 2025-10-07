@@ -1,7 +1,5 @@
-// import { Prisma } from "../../../generated/prisma"
 
-import { title } from "process"
-import { Post, Prisma } from "../../../generated/prisma"
+import { Post, Prisma } from "@prisma/client"
 import { prisma } from "../../config/db"
 
 
