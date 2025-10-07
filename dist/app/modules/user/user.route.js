@@ -10,9 +10,6 @@ route.get("/", user_controller_1.userController.getUser);
 // create about api 
 route.post("/createAbout", user_controller_1.userController.createAbout);
 route.get("/about", user_controller_1.userController.getAbout);
-// create project api 
-route.post("/project", user_controller_1.userController.createProject);
-route.get("/project", user_controller_1.userController.getWorks);
 route.patch("/:id", user_controller_1.userController.updateUser);
 route.delete("/:id", user_controller_1.userController.deleteUser);
 exports.userRoute = route;

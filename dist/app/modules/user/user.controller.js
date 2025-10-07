@@ -65,29 +65,10 @@ const createAbout = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(v
         data: result,
     });
 }));
-// -----------create-Project
-const createProject = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield user_service_1.userService.createProject(req.body);
-    res.status(201).json({
-        success: true,
-        message: "create Project data retrieve successfully",
-        data: result,
-    });
-}));
-const getWorks = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield user_service_1.userService.getWorks();
-    res.status(201).json({
-        success: true,
-        message: "Works Data retrieve successfully",
-        data: result,
-    });
-}));
 exports.userController = {
     getUser,
     createAbout,
     getAbout,
-    createProject,
-    getWorks,
     createUser,
     deleteUser,
     updateUser

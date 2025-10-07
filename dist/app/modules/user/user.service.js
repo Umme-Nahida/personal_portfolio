@@ -82,21 +82,9 @@ const getAbout = () => __awaiter(void 0, void 0, void 0, function* () {
     return user;
 });
 // added project service api
-const createProject = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield db_1.prisma.works.create({
-        data: data
-    });
-    return user;
-});
-const getWorks = () => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield db_1.prisma.works.findMany();
-    return user;
-});
 exports.userService = {
     getUser,
     createAbout,
-    createProject,
-    getWorks,
     getAbout,
     createUser,
     deleteUser,
