@@ -10,7 +10,7 @@ const app = express()
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["https://portfolio-project-client.vercel.app","http://localhost:3000"],
     credentials: true,
   })
 ); // Enables Cross-Origin Resource Sharing 
@@ -21,7 +21,7 @@ app.use(express.json()); // Parse incoming JSON requests
 app.use("/api/v1/auth", authRouter)
 app.use("/api/v1/user", userRoute)
 app.use("/api/v1/blog", blogRouter)
-app.use("/api/v1/project", workRouter)
+app.use("/api/v1/project",workRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
