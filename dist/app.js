@@ -12,7 +12,7 @@ const work_route_1 = require("./app/modules/work/work.route");
 const app = (0, express_1.default)();
 // -----------------middleware--------------
 app.use((0, cors_1.default)({
-    origin: "http://localhost:3000",
+    origin: ["https://portfolio-project-client.vercel.app", "http://localhost:3000"],
     credentials: true,
 })); // Enables Cross-Origin Resource Sharing 
 app.use(express_1.default.json()); // Parse incoming JSON requests
