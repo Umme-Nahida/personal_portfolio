@@ -7,10 +7,9 @@ import { workRouter } from './app/modules/work/work.route'
 const app = express()
 
 // -----------------middleware--------------
-
 app.use(
   cors({
-    origin: ["https://portfolio-project-client.vercel.app","http://localhost:3000"],
+    origin: ["https://portfolio-project-client.vercel.app"],
     credentials: true,
   })
 ); // Enables Cross-Origin Resource Sharing 
