@@ -1,5 +1,4 @@
 import { Router } from "express";
-// import { checkAuth } from "../../utils/checkAuth";
 import { blogController } from "./blog.controller";
 
 
