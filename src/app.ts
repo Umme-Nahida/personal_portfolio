@@ -23,7 +23,7 @@ app.use("/api/v1/blog", blogRouter)
 app.use("/api/v1/project",workRouter)
 
 app.get('/', (req, res) => {
-  res.send('my portfolio server is running ')
+  res.send('my portfolio server is running in this time')
 })
 
 export default app;
