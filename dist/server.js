@@ -55,7 +55,7 @@ function gracefulShutdown(signal) {
         console.warn(`🔄 Received ${signal}, shutting down gracefully...`);
         if (server) {
             server.close(() => __awaiter(this, void 0, void 0, function* () {
-                console.log("✅ HTTP server closed.");
+                // console.log("✅ HTTP server closed.");
                 try {
                     console.log("Server shutdown complete.");
                 }
