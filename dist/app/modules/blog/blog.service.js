@@ -18,13 +18,14 @@ const createBlog = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     });
     return blog;
 });
+
 const singleBlog = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    // console.log("id:",id);
+   
     const post = yield db_1.prisma.post.findUnique({ where: { id }, include: { author: true } });
     if (!post) {
         throw new Error("Blog not found");
     }
-    console.log("post", post);
+
     return post;
 });
 const getAllBlog = (search, page, limit) => __awaiter(void 0, void 0, void 0, function* () {
