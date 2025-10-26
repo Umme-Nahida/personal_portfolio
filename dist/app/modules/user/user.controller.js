@@ -14,7 +14,6 @@ const catchAsync_1 = require("../../utils/catchAsync");
 const user_service_1 = require("./user.service");
 const createUser = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const user = req.body;
-    console.log("user", req.body);
     const result = yield user_service_1.userService.createUser(user);
     res.status(201).json({
         success: true,
